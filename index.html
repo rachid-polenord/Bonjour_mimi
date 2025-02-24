@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Protégée</title>
+    <style>
+        /* Mise en forme de base */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .content {
+            background-color: #fff;
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 800px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        h2 {
+            color: #2C3E50;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #34495E;
+            margin-bottom: 15px;
+        }
+
+        blockquote {
+            background-color: #ecf0f1;
+            border-left: 5px solid #3498db;
+            padding: 10px 20px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 16px;
+            color: #34495E;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .password-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            text-align: center;
+            margin: 20px auto;
+        }
+
+        .password-form input {
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .password-form button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .password-form button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .content {
+                padding: 15px;
+                margin: 15px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            .footer {
+                font-size: 14px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .content {
+                padding: 10px;
+                margin: 10px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            p {
+                font-size: 12px;
+            }
+
+            blockquote {
+                padding: 8px 15px;
+            }
+
+            .footer {
+                font-size: 12px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="password-form" id="passwordForm">
+            <h2>Accès Protégé</h2>
+            <p>Veuillez entrer le mot de passe pour accéder au contenu.</p>
+            <input type="password" id="passwordInput" placeholder="Mot de passe">
+            <button onclick="checkPassword()">Accéder</button>
+        </div>
+
+        <div class="content" id="protected-content">
+            <h2>Merci Walid</h2>
+            <p>Cela m’a fait du bien d’en parler ce matin. Tu es quelqu’un de très réceptif, et tu captes bien les choses. Maintenant que tu as appris un peu à me connaître, je vais te dire pourquoi cela m’a fait du bien d’en parler avec toi à ce moment précis de ma vie...</p>
+            
+            <h2>Tabarak Allah ‘alayk</h2>
+            <p>Pour mon amende de voiture au tribunal, c’était pour te transmettre une piste de réflexion pour ta décision Djamel, ou, comme ce matin, une carrière professionnelle dans le basket. Ce ne sont pour moi que des expériences de pensée. Cela me permet d’expliquer ou de comprendre des choses complexes.</p>
+            
+            <blockquote>
+                <p><strong>"Une expérience de pensée, originaire de la philosophie, est un exercice intellectuel qui consiste à imaginer des scénarios hypothétiques pour explorer les implications de certaines idées ou théories, dans le but de stimuler la réflexion critique, tester des concepts et parfois trouver des solutions à des problèmes complexes."</strong></p>
+            </blockquote>
+
+            <p>Merci à toi pour ton écoute, mais surtout pour tes retours bienveillants. Grâce à notre discussion, j’ai pu construire un scénario dans ma tête pour la suite de ma journée et de mes démarches. Tu m’as aidé à relever deux ou trois points importants à prendre en compte pour la suite.</p>
+            
+            <div class="footer">
+                Encore merci, et à très bientôt !<br>
+                <strong>Avec toute mon amitié, Rch</strong>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            var password = document.getElementById("passwordInput").value;
+            var correctPassword = "ww"; // Le mot de passe à définir
+            var passwordForm = document.getElementById("passwordForm");
+            var protectedContent = document.getElementById("protected-content");
+
+            if (password === correctPassword) {
+                passwordForm.style.display = "none"; // Cacher le formulaire
+                protectedContent.style.display = "block"; // Afficher le contenu protégé
+            } else {
+                alert("Mot de passe incorrect, essayez à nouveau.");
+            }
+        }
+    </script>
+</body>
+</html>
