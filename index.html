@@ -1,66 +1,62 @@
-om<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Walid_lock_msg</title>
+    <title>Email</title>
     <style>
-        /* Mise en forme de base */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f9f9f9;
+            color: #333;
         }
 
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            padding: 20px;
-        }
-
-        .content {
-            background-color: #fff;
-            padding: 20px;
-            margin: 30px auto;
-            max-width: 800px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: none;
+        h1, h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            text-align: left;
         }
 
         h2 {
-            color: #2C3E50;
-            font-size: 24px;
-            margin-bottom: 15px;
+            margin-top: 30px;
         }
 
         p {
-            font-size: 16px;
+            margin-bottom: 20px;
+            font-size: 1.1em;
             line-height: 1.6;
-            color: #34495E;
-            margin-bottom: 15px;
         }
 
         blockquote {
-            background-color: #ecf0f1;
-            border-left: 5px solid #3498db;
-            padding: 10px 20px;
+            border-left: 4px solid #ccc;
+            padding-left: 20px;
+            color: #555;
             margin: 20px 0;
             font-style: italic;
+            font-size: 1.1em;
         }
 
-        .footer {
-            text-align: center;
-            font-size: 16px;
-            color: #34495E;
-            margin-top: 30px;
+        strong {
+            font-weight: bold;
+        }
+
+        /* Styles pour les sections avec des cadres */
+        .section {
+            background-color: #fff;
             padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styles pour le formulaire de mot de passe */
+        * {
+            box-sizing: border-box;
         }
 
         .password-form {
@@ -71,6 +67,7 @@ om<!DOCTYPE html>
             max-width: 400px;
             text-align: center;
             margin: 20px auto;
+            width: 100%;
         }
 
         .password-form input {
@@ -80,6 +77,7 @@ om<!DOCTYPE html>
             font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            box-sizing: border-box;
         }
 
         .password-form button {
@@ -89,90 +87,126 @@ om<!DOCTYPE html>
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            width: 100%;
         }
 
         .password-form button:hover {
             background-color: #2980b9;
         }
 
+        /* Contenu protégé */
+        .content {
+            display: none;
+            padding: 20px;
+            background-color: #f9f9f9;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
         /* Responsive Design */
-        @media screen and (max-width: 768px) {
-            .content {
-                padding: 15px;
-                margin: 15px;
+        @media screen and (min-width: 600px) {
+            body {
+                padding: 30px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+                text-align: left;
             }
 
             h2 {
-                font-size: 22px;
+                font-size: 1.6em;
+                text-align: left;
             }
 
-            p {
-                font-size: 14px;
-            }
-
-            .footer {
-                font-size: 14px;
+            p, blockquote {
+                font-size: 1.1em;
             }
         }
 
-        @media screen and (max-width: 480px) {
-            .content {
-                padding: 10px;
-                margin: 10px;
+        @media screen and (min-width: 1024px) {
+            body {
+                padding: 40px;
+            }
+
+            h1 {
+                font-size: 2em;
+                text-align: left;
             }
 
             h2 {
-                font-size: 20px;
+                font-size: 1.8em;
+                text-align: left;
             }
 
-            p {
-                font-size: 12px;
-            }
-
-            blockquote {
-                padding: 8px 15px;
-            }
-
-            .footer {
-                font-size: 12px;
-                padding: 15px;
+            p, blockquote {
+                font-size: 1.2em;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="password-form" id="passwordForm">
-            <h2>Accès Protégé</h2>
-            <p>Veuillez entrer le mot de passe pour accéder au contenu.</p>
-            <input type="password" id="passwordInput" placeholder="Mot de passe">
-            <button onclick="checkPassword()">Accéder</button>
-        </div>
+  
+    <!-- Formulaire pour entrer le mot de passe -->
+    <div class="password-form" id="passwordForm">
+        <h2>Accès Protégé</h2>
+        <p>Veuillez entrer le mot de passe pour accéder au contenu.</p>
+        <input type="password" id="passwordInput" placeholder="Mot de passe">
+        <button onclick="checkPassword()">Accéder</button>
+    </div>
 
-        <div class="content" id="protected-content">
-            <h2>Merci Walid</h2>
-            <p>Cela m’a fait du bien d’en parler ce matin. Tu es quelqu’un de très réceptif, et tu captes bien les choses. Maintenant que tu as appris un peu à me connaître, je vais te dire pourquoi cela m’a fait du bien d’en parler avec toi à ce moment précis de ma vie...</p>
-            
-            <h2>Tabarak Allah ‘alayk</h2>
-            <p>Pour mon amende de voiture au tribunal, c’était pour te transmettre une piste de réflexion pour ta décision Djamel, ou, comme ce matin, une carrière professionnelle dans le basket. Ce ne sont pour moi que des expériences de pensée. Cela me permet d’expliquer ou de comprendre des choses complexes.</p>
-            
+    <!-- Contenu protégé, caché par défaut -->
+    <div class="content" id="protected-content">
+        <div class="section">
+    <h1>Salam Chadia,</h1>
+            <p><strong>... Petit message en mode privé qui sera supprimer demain... </strong></p>
+        </div>
+        <div class="section">
+            <h2>POUR LE BOULOT</h2>
+            <p>Merci pour ta réponse. Si jamais il te manque une clé, ce n’est pas grave. Reçue ou pas… Rien à foutre.  
+            On fera un double d’ici ta remise de clé, mais cela restera entre nous. Pour moi, l’équipe de la salle d’étude doit sortir clean.</p>
+
             <blockquote>
-                <p><strong>"Un cheminement ou une expérience de pensée, originaire de la philosophie, est un exercice intellectuel qui consiste à imaginer des scénarios hypothétiques pour explorer les implications de certaines idées ou théories, dans le but de stimuler la réflexion critique, tester des concepts et parfois trouver des solutions à des problèmes complexes."</strong></p>
+                <p>Je suppose que Fred ne t’a jamais fait signer un accusé de réception ?</p>
+                <p>Pas grave, je suis là !</p>
+                <p>L’idée, c’est de montrer qu’on prend notre boulot au sérieux. Et toi-même, tu sais qui je suis…</p>
             </blockquote>
 
-            <p>Merci à toi pour ton écoute, mais surtout pour tes retours bienveillants. Grâce à notre discussion, j’ai pu construire un scénario dans ma tête pour la suite de ma journée et de mes démarches. Tu m’as aidé à relever deux ou trois points importants à prendre en compte pour la suite.</p>
-            
-            <div class="footer">
-                Encore merci, et à très bientôt !<br>
-                <strong>Avec toute mon amitié, Rch</strong>
-            </div>
+            <p><strong>Tout ce qui se passe entre nous reste entre nous.</strong></p>
+        </div>
+
+        <div class="section">
+            <h2>PÉRIODE TRÈS DIFFICILE POUR MOI</h2>
+            <p>Tu m’as vu en pleine crise de parano et de tourmente à cause de l’autre au boulot en novembre-décembre 2024 ? </br> </br> 
+            .... à cette période où je voyais de la trahison et du mensonge partout grâce à Djamel: famille, entourage + boulot…  </br> 
+            Je t’envoie encore toutes mes excuses pour t’avoir mal jugée et m’être méfié de toi.</p>
+
+            <p>En ce moment, je boucle mes contrats et finalise tous mes dossiers, tu restes le dernier dossier à boucler, je ne t'oublie pas...</p>
+
+            <p>Comme tu le sais, chaque contrat me rapporte un peu, mais chaque dossier me demande aussi du temps.</p>
+
+            <blockquote>
+            <p>C’est une période très difficile pour moi en ce moment… <strong>et rien à voir avec novembre 2024, </strong>car je viens d’apprendre une très sale nouvelle… mais je préfère garder mes distances <strong>avec tout le monde </strong>pour ne pas reproduire les erreurs du passé, donc ne le prends pas pour toi cette fois-ci</p>
+            </blockquote>
+        </div>
+        <div class="section">
+            <h2>Merci pour le tajine de poisson</h2>
+            <blockquote>
+                <p>Cela reste mon meilleur souvenir de 2025</p>
+            </blockquote>
+
+            <p><strong>Je ne t'oublie pas et te tiens au courant dès que possible pour ton dossier d'aide à ta famille.</strong></p>
+        </div>
+        <div class="section">
+            <h2>Rch</h2>
         </div>
     </div>
 
     <script>
         function checkPassword() {
             var password = document.getElementById("passwordInput").value;
-            var correctPassword = "walid"; // Le mot de passe à définir
+            var correctPassword = "7x7"; // Le mot de passe à définir
             var passwordForm = document.getElementById("passwordForm");
             var protectedContent = document.getElementById("protected-content");
 
