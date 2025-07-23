@@ -1,196 +1,24 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-
-        h1, h2 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-            text-align: left;
-        }
-
-        h2 {
-            margin-top: 30px;
-        }
-
-        p {
-            margin-bottom: 20px;
-            font-size: 1.1em;
-            line-height: 1.6;
-        }
-
-        blockquote {
-            border-left: 4px solid #ccc;
-            padding-left: 20px;
-            color: #555;
-            margin: 20px 0;
-            font-style: italic;
-            font-size: 1.1em;
-        }
-
-        strong {
-            font-weight: bold;
-        }
-
-        /* Styles pour les sections avec des cadres */
-        .section {
-            background-color: #fff;
-            padding: 20px;
-            margin: 20px 0;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Styles pour le formulaire de mot de passe */
-        * {
-            box-sizing: border-box;
-        }
-
-        .password-form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            text-align: center;
-            margin: 20px auto;
-            width: 100%;
-        }
-
-        .password-form input {
-            padding: 10px;
-            margin-bottom: 10px;
-            width: 100%;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        .password-form button {
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .password-form button:hover {
-            background-color: #2980b9;
-        }
-
-        /* Contenu protégé */
-        .content {
-            display: none;
-            padding: 20px;
-            background-color: #f9f9f9;
-            margin-top: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Responsive Design */
-        @media screen and (min-width: 600px) {
-            body {
-                padding: 30px;
-            }
-
-            h1 {
-                font-size: 1.8em;
-                text-align: left;
-            }
-
-            h2 {
-                font-size: 1.6em;
-                text-align: left;
-            }
-
-            p, blockquote {
-                font-size: 1.1em;
-            }
-        }
-
-        @media screen and (min-width: 1024px) {
-            body {
-                padding: 40px;
-            }
-
-            h1 {
-                font-size: 2em;
-                text-align: left;
-            }
-
-            h2 {
-                font-size: 1.8em;
-                text-align: left;
-            }
-
-            p, blockquote {
-                font-size: 1.2em;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vidéo Plein Écran</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: black;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
 </head>
 <body>
-  
-    <!-- Formulaire pour entrer le mot de passe -->
-    <div class="password-form" id="passwordForm">
-        <h2>Accès Protégé</h2>
-        <p>Veuillez entrer le mot de passe pour accéder au contenu. Я 💻 R </p>
-        <input type="password" id="passwordInput" placeholder="Mot de passe">
-        <button onclick="checkPassword()">Accéder</button>
-    </div>
-
-    <!-- Contenu protégé, caché par défaut -->
-    <div class="content" id="protected-content">
-        <div class="section">
-    <h1>Salam Chadia</h1>
-            <p><strong>... CONTENU SUPPRIMER - PROCHAIN CONTENU A VENIR... </strong></p>
-        </div>
-        <div class="section">
-
-
-            <blockquote>
-
-            </blockquote>
-
-            <p><strong>Tout ce qui se passe entre nous reste entre nous.</strong></p>
-        </div>
-
-        <div class="section">
-            <h2>Rch</h2>
-        </div>
-    </div>
-
-    <script>
-        function checkPassword() {
-            var password = document.getElementById("passwordInput").value;
-            var correctPassword = "chadia"; // Le mot de passe à définir
-            var passwordForm = document.getElementById("passwordForm");
-            var protectedContent = document.getElementById("protected-content");
-
-            if (password === correctPassword) {
-                passwordForm.style.display = "none"; // Cacher le formulaire
-                protectedContent.style.display = "block"; // Afficher le contenu protégé
-            } else {
-                alert("Mot de passe incorrect, essayez à nouveau.");
-            }
-        }
-    </script>
+  <video src="mimi AI_vf_mini.mp4" autoplay controls playsinline></video>
 </body>
 </html>
