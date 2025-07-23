@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vidéo Plein Écran</title>
+  <title>Lecture Vidéo</title>
   <style>
     html, body {
       margin: 0;
@@ -11,14 +11,39 @@
       height: 100%;
       background: black;
     }
+    #start-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 1em 2em;
+      font-size: 1.2em;
+      background: white;
+      border: none;
+      border-radius: 8px;
+      z-index: 2;
+    }
     video {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: none;
     }
   </style>
 </head>
 <body>
-  <video src="mimi AI_vf_mini.mp4" autoplay controls playsinline></video>
+  <button id="start-btn">Lancer la vidéo</button>
+  <video id="video" src="mimi AI_vf.mp4" controls playsinline></video>
+
+  <script>
+    const btn = document.getElementById('start-btn');
+    const video = document.getElementById('video');
+
+    btn.addEventListener('click', () => {
+      btn.style.display = 'none';
+      video.style.display = 'block';
+      video.play();
+    });
+  </script>
 </body>
 </html>
